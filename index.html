@@ -4,63 +4,63 @@
     </head>
     <body>
         <p> What a body! </p>
-        <div id="vegaViz"></div>
-        <script type="text/javascript">
+        <div id=vegaViz></div>
+        <script type=text/javascript>
             var mySpec = 
                 {
-                  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-                  "data": {
-                    "url": "data/movies.json"
+                  $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+                  data: {
+                    url: 'data/movies.json'
                   },
-                  "hconcat": [
+                  hconcat: [
                     {
-                      "transform": [
+                      transform: [
                         {
-                          "filter": {
-                            "param": "mySelection"
+                          filter: {
+                            param: 'mySelection'
                           }
                         }
                       ],
-                      "mark": "bar",
-                      "encoding": {
-                        "x":{
-                          "field": "Production Budget",
-                          "type": "quantitative",
-                          "bin": {
-                            "step": 50000000
+                      mark: 'bar,'
+                      encoding: {
+                        x:{
+                          field: 'Production Budget',
+                          type: 'quantitative',
+                          bin: {
+                            step: 50000000
                           }
                         },
-                        "y": {
-                          "aggregate": "mean",
-                          "field": "Worldwide Gross",
-                          "type": "quantitative"
+                        y: {
+                          aggregate: 'mean',
+                          field: 'Worldwide Gross',
+                          type: 'quantitative'
                         }
                         }
                     },
                     {
-                      "mark": "point",
-                      "params": [
+                      mark: 'point',
+                      params: [
                         {
-                          "name": "mySelection",
-                          "select": {
-                            "type": "interval"
+                          name: 'mySelection',
+                          select: {
+                            type: 'interval'
                           }
                         }
                       ],
-                        "encoding": {
-                          "x":{
-                            "field": "IMDB Rating",
-                            "type": "quantitative"
+                        encoding: {
+                          x:{
+                            field: 'IMDB Rating',
+                            type: 'quantitative'
                           },
-                          "y": {
-                            "field": "IMDB Votes",
-                            "type": "quantitative"
+                          y: {
+                            field: 'IMDB Votes',
+                            type: 'quantitative'
                           },
-                          "color":{
-                            "value": "grey",
-                            "condition": {
-                              "param": "mySelection",
-                              "value": "steelblue"
+                          color:{
+                            value: 'grey',
+                            condition: {
+                              param: 'mySelection',
+                              value: 'steelblue'
                             }
                           }
                         }
