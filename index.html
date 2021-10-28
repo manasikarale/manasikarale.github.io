@@ -20,14 +20,12 @@
                     "url": "https://raw.githubusercontent.com/manasikarale/manasikarale.github.io/master/building_inventory.csv"
                   },
                   "vconcat": [
-                      {
+                    {
                       "params": [{"name": "selection", "select": "interval"}],
-                      "title": {
-                        "text": "Year Acquired vs Year Constructed"
-                      },
+                      "title": {"text": "Year Acquired vs Year Constructed"},
                       "transform": [
                         {
-                          "filter":{
+                          "filter": {
                             "and": [
                               {"field": "Year_Acquired", "gte": 1750},
                               {"field": "Year_Constructed", "gte": 1750},
@@ -36,57 +34,39 @@
                           }
                         }
                       ],
-                      "mark": {
-                        "type": "point", 
-                        "tooltip": true
-                        },
+                      "mark": {"type": "point", "tooltip": true},
                       "encoding": {
                         "x": {
-                          "field": "Year_Acquired", 
+                          "field": "Year_Acquired",
                           "type": "quantitative",
-                          "scale": {"domain": [1750,2050]}
-                          },
+                          "scale": {"domain": [1750, 2050]}
+                        },
                         "y": {
                           "field": "Year_Constructed",
                           "type": "quantitative",
-                          "scale": {"domain": [1750,2050]}
+                          "scale": {"domain": [1750, 2050]}
                         },
-                        "color":{
+                        "color": {
                           "value": "grey",
-                          "condition": {
-                            "param": "selection",
-                            "value": "steelblue"
-                          }
+                          "condition": {"param": "selection", "value": "steelblue"}
                         }
                       }
-                    }, 
+                    },
                     {
-                      "title":{
-                        "text": "Square Footage of selected area"
-                      },
-                      "transform": [
-                        {"filter": {
-                            "param": "selection"
-                          }
-                        }
-                      ],
-                      "mark": {
-                        "type":"bar", 
-                        "tooltip": true
-                      },
+                      "title": {"text": "Square Footage of selected area"},
+                      "transform": [{"filter": {"param": "selection"}}],
+                      "mark": {"type": "bar", "tooltip": true},
                       "encoding": {
-                        "x": {
-                          "field": "Square_Footage", 
+                        "y": {
+                          "field": "Square_Footage",
                           "type": "quantitative",
                           "aggregate": "mean"
                         },
-                        "y": {
-                          "field": "Bldg_Status",
-                          "type": "nominal"
-                        },
+                        "x": {"field": "Agency_Name", "type": "nominal"},
                         "color": {
-                          "field": "Agency_Name", 
-                          "type": "nominal"
+                          "field": "Bldg_Status",
+                          "type": "nominal",
+                          "scale": {"range": ["blue", "pink", "orange"]}
                         }
                       }
                     }
